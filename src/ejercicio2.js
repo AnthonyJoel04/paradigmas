@@ -13,7 +13,7 @@ class Producto {
     this.precio = Number(precio);
     this.categoria = categoria;
     this.stock = Number(stock);
-    this.marca = (marca != null) ? marca : null; // sin ??
+    this.marca = (marca != null) ? marca : null;
   }
 
   actualizarStock(delta) {
