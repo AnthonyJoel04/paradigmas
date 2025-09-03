@@ -1,11 +1,13 @@
 const IVA = 0.19;
 
+// Añadir priceWithTax (precio con IVA)
 const addPriceWithTax = (arr, tax = IVA) =>
   arr.map((p) => ({
     ...p,
     priceWithTax: Number((p.precio * (1 + tax)).toFixed(2)),
   }));
 
+  // Añadir status según stock
 const addStatus = (arr) =>
   arr.map((p) => {
     let status = "Bajo";
@@ -14,6 +16,7 @@ const addStatus = (arr) =>
     return { ...p, status };
   });
 
+ // Resumen de inventario por categoría
 const inventorySummaryByCategory = (arr) =>
   arr.reduce((acc, p) => {
     const cat = p.categoria;
@@ -40,17 +43,19 @@ if (require.main === module) {
     { id: 6, marca: "Asus", categoria: "perifericos", precio: 120, stock: 60 },
   ];
 
+  // Extraer datos con nuevas propiedades
   const withTax = addPriceWithTax(products);
   const withStatus = addStatus(withTax);
   const summary = inventorySummaryByCategory(products);
 
+  // Mostrar resultados por consola con IVA 19%
   console.log("1) Con PriceWithTax (19%):");
   console.table(
     withTax.map(({ id, marca, categoria, precio, priceWithTax, stock }) => ({
       id, marca, categoria, precio, priceWithTax, stock,
     }))
   );
-
+//Mostrar el resultado de addStatus
   console.log("\n2) Con status (Alto/Medio/Bajo):");
   console.table(
     withStatus.map(({ id, marca, categoria, precio, priceWithTax, stock, status }) => ({
@@ -58,6 +63,7 @@ if (require.main === module) {
     }))
   );
 
+ //Mostrar el resultado de inventorySummaryByCategory
   console.log("\n3) Resumen de inventario por categoría:");
   console.table(summary);
 }

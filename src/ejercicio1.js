@@ -7,19 +7,24 @@ const estudiantes = [
   { id: 6, nombre: "Leo",   edad: 27, curso: "JavaScript", nota: 99 },
 ];
 
+// 1) Filtrar estudiantes de JavaScript con nota > 80
 const estudiantesJsMayor80 = (arr) =>
   arr.filter((e) => e.curso === "JavaScript" && e.nota > 80);
 
+// 2) Promedio de notas de todos los estudiantes
 const promedioNotas = (arr) =>
   arr.reduce((suma, e) => suma + e.nota, 0) / (arr.length || 1);
 
+// 3) Nombres de estudiantes mayores de 20 años
 const nombresMayores20 = (arr) =>
   arr.filter((e) => e.edad > 20).map((e) => e.nombre);
 
+// 4) Estudiante con la nota más alta
 const mejorEstudiante = (arr) =>
   arr.reduce((mejor, e) => (e.nota > mejor.nota ? e : mejor), arr[0]);
 
-if (require.main === module) {
+// Datos base para los productos (solo 5 para no extender mucho)
+if (require.main === module) {  
   console.log("\n=== EJERCICIO 1 ===");
 
   console.log("\n1) Estudiantes de JavaScript con nota > 80:");
@@ -34,7 +39,7 @@ if (require.main === module) {
   console.log("\n4) Estudiante con la nota más alta:");
   console.table([mejorEstudiante(estudiantes)]);
 }
-
+ // Tener organización y mantener una estructura limpia y modular.
 module.exports = {
   estudiantes,
   estudiantesJsMayor80,

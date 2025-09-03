@@ -1,6 +1,8 @@
+// Manipulación de arrays de productos
 const filtrarPorRangoPrecio = (arr, minimo = 0, maximo = Infinity) =>
   arr.filter((p) => p.precio >= minimo && p.precio <= maximo);
 
+ // Agrupa los productos por el valor de la clave dada
 const agruparPor = (arr, clave) =>
   arr.reduce((acc, item) => {
     const k = item[clave];
@@ -9,11 +11,13 @@ const agruparPor = (arr, clave) =>
     return acc;
   }, {});
 
+ // Busca productos por marca
 const buscarPorMarca = (arr, marca) => {
   const buscada = String(marca || "").toLowerCase();
   return arr.filter((p) => (p.marca ? p.marca.toLowerCase() : "") === buscada);
 };
 
+ // Estadísticas por categoría: cantidad, promedio y total
 const estadisticasPorCategoria = (arr) =>
   Object.entries(agruparPor(arr, "categoria")).reduce((acc, [cat, items]) => {
     const cantidad = items.length;
@@ -50,7 +54,7 @@ if (require.main === module) {
   const MIN = 100;
   const MAX = 300;
   const MARCA_BUSCADA = "sony";
-
+ 
   const filtrados = filtrarPorRangoPrecio(productos, MIN, MAX);
   console.log(`1) Filtrar por rango de precio [${MIN}, ${MAX}] (${filtrados.length})`);
   console.table(

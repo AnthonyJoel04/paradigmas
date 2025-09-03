@@ -1,5 +1,3 @@
-// ====== Funciones de validación ======
-
 // 1) Verifica formato de email
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -45,8 +43,6 @@ function validateProduct(product) {
     product.categoria
   );
 }
-
-// ====== Demo ======
 if (require.main === module) {
   console.log("\n=== EJERCICIO 3 ===");
 
@@ -54,15 +50,18 @@ if (require.main === module) {
   console.log("\n1) Validar email:");
   const emails = ["user@test.com", "bademail@", "correo@dominio.co"];
   console.table(emails.map((e) => ({ email: e, valido: validateEmail(e) })));
-
+  
+  // Validar contraseñas
   console.log("\n2) Validar contraseña:");
   const passwords = ["Fx!2024abc", "simple123.", "WeakPw2", "Strong1!"];
   console.table(passwords.map((p) => ({ password: p, valido: validatePassword(p) })));
 
+   // Validar edades
   console.log("\n3) Validar edad:");
   const edades = [23, -5, 150, 20];
   console.table(edades.map((edad) => ({ edad, valido: validateAge(edad) })));
 
+    // Validar producto
   console.log("\n4) Validar producto:");
   const productos = [
     { id: "Tablet", nombre: "Producto 1", precio: 19.99, categoria: "General", stock: 10 },
@@ -78,6 +77,7 @@ if (require.main === module) {
   })));
 }
 
+// Exportar funciones para pruebas unitarias
 module.exports = {
   validateEmail,
   validatePassword,
