@@ -40,8 +40,11 @@ if (require.main === module) {
     { id: 2, marca: "Sony",    categoria: "video",    precio: 300, stock: 2 },
     { id: 3, marca: "LG",      categoria: "video",    precio: 250, stock: 4 },
     { id: 4, marca: "Samsung", categoria: "audio",    precio: 150, stock: 3 },
-    { id: 5, marca: "Lenovo",  categoria: "computo",  precio: 500, stock: 1 },
+    { id: 5, marca: "Lenovo",  categoria: "computadores",  precio: 500, stock: 1 },
     { id: 6, marca: "LG",      categoria: "audio",    precio: 120, stock: 6 },
+    { id: 7, marca: "Asus",    categoria: "computadores",  precio: 700, stock: 0 },
+    { id: 8, marca: "Logitech",categoria: "periféricos", precio: 80,  stock: 15 },
+    { id: 9, marca: "Apple",   categoria: "computadores",  precio: 1500,stock: 3 },
   ];
 
   const MIN = 100;
