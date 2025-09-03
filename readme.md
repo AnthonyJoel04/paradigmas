@@ -67,8 +67,6 @@ Archivo: `ejercicio5.js`
   - Tabla con estado de stock.
   - Resumen de inventario agrupado por categoría.
 
----
-
 ## Cómo ejecutar
 
 En el archivo `package.json`, se definieron scripts como:
