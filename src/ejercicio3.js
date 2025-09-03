@@ -1,39 +1,86 @@
-// Validar correo electrónico
-function validarCorreo(correo) {
+// ====== Funciones de validación ======
+
+// 1) Verifica formato de email
+function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  return re.test(String(correo).trim());
-} 
-// Expresión regular simple para validar correo
-function validarContrasena(contrasena) {
-  const s = String(contrasena);
-  return s.length >= 8 && /[A-Z]/.test(s) && /[a-z]/.test(s) && /\d/.test(s) && /[^A-Za-z0-9]/.test(s);
+  return re.test(String(email).trim());
 }
-// Mínimo 8 caracteres, al menos una mayúscula, una minúscula, un número y un carácter especial
-function validarEdad(edad) {
-  const n = Number(edad);
+
+// 2) Verifica fortaleza de contraseña
+function validatePassword(password) {
+  const s = String(password);
+  return (
+    s.length >= 8 &&
+    /[A-Z]/.test(s) &&
+    /[a-z]/.test(s) &&
+    /\d/.test(s) &&
+    /[^A-Za-z0-9]/.test(s)
+  );
+}
+
+// 3) Verifica edad válida
+function validateAge(age) {
+  const n = Number(age);
   return Number.isInteger(n) && n >= 0 && n <= 120;
 }
-// Extra: Validar objeto producto
-function validarProducto(producto) {
+
+// 4) Valida objeto producto completo
+function validateProduct(product) {
   const requeridos = ["id", "nombre", "precio", "categoria", "stock"];
-  const tieneCampos = requeridos.every((k) => Object.prototype.hasOwnProperty.call(producto, k));
+  const tieneCampos = requeridos.every((k) =>
+    Object.prototype.hasOwnProperty.call(product, k)
+  );
   if (!tieneCampos) return false;
-  return typeof producto.precio === "number" && producto.precio > 0 &&
-         Number.isFinite(producto.stock) && producto.stock >= 0 &&
-         typeof producto.id === "string" && producto.id &&
-         typeof producto.nombre === "string" && producto.nombre &&
-         typeof producto.categoria === "string" && producto.categoria;
+
+  return (
+    typeof product.precio === "number" &&
+    product.precio > 0 &&
+    Number.isFinite(product.stock) &&
+    product.stock >= 0 &&
+    typeof product.id === "string" &&
+    product.id &&
+    typeof product.nombre === "string" &&
+    product.nombre &&
+    typeof product.categoria === "string" &&
+    product.categoria
+  );
 }
 
-// Pruebas
-console.log("\n=== EJERCICIO 3 ===");
-console.log("Correo válido:", validarCorreo("user@test.com"));
-console.log("Contraseña válida:", validarContrasena("Fx!2024abc"));
-console.log("Edad válida (23):", validarEdad(23));
+// ====== Demo ======
+if (require.main === module) {
+  console.log("\n=== EJERCICIO 3 ===");
 
-// Extra
-const prodValido = { id: "PR-001", nombre: "Producto 1", precio: 19.99, categoria: "General", stock: 10 };
-const prodInvalido = { id: "PR-002", nombre: "", precio: -5, categoria: "General" };
-console.log("Producto válido:", validarProducto(prodValido));
-console.log("Producto inválido:", validarProducto(prodInvalido));
-module.exports = { validarCorreo, validarContrasena, validarEdad, validarProducto };
+  // 1) Validar emails
+  console.log("\n1) Validar email:");
+  const emails = ["user@test.com", "bademail@", "correo@dominio.co"];
+  console.table(emails.map((e) => ({ email: e, valido: validateEmail(e) })));
+
+  console.log("\n2) Validar contraseña:");
+  const passwords = ["Fx!2024abc", "simple123.", "WeakPw2", "Strong1!"];
+  console.table(passwords.map((p) => ({ password: p, valido: validatePassword(p) })));
+
+  console.log("\n3) Validar edad:");
+  const edades = [23, -5, 150, 20];
+  console.table(edades.map((edad) => ({ edad, valido: validateAge(edad) })));
+
+  console.log("\n4) Validar producto:");
+  const productos = [
+    { id: "Tablet", nombre: "Producto 1", precio: 19.99, categoria: "General", stock: 10 },
+    { id: "Teclado", nombre: "Producto 2", precio: -5, categoria: "General" , stock: 5 },
+  ];
+  console.table(productos.map((p) => ({
+    id: p.id,
+    nombre: p.nombre,
+    categoria: p.categoria,
+    precio: p.precio,
+    stock: p.stock ?? "-",
+    valido: validateProduct(p),
+  })));
+}
+
+module.exports = {
+  validateEmail,
+  validatePassword,
+  validateAge,
+  validateProduct,
+};
