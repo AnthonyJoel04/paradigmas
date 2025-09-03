@@ -64,7 +64,7 @@ Archivo: `ejercicio5.js`
   - Resumen de inventario agrupado por categoría.
 
 ## Cómo ejecutar
-En el archivo `package.json`, se definieron scripts oara poder ejecutar cada uno y también de manera individual:
+En el archivo `package.json`, se definieron scripts para poder ejecutar cada uno y también de manera individual:
 
 ```json
 "scripts": {
