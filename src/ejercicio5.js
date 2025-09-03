@@ -36,6 +36,8 @@ if (require.main === module) {
     { id: 2, marca: "Sony", categoria: "video", precio: 300, stock: 55 },
     { id: 3, marca: "LG", categoria: "video", precio: 250, stock: 22 },
     { id: 4, marca: "Samsung", categoria: "audio", precio: 150, stock: 12 },
+    { id: 5, marca: "Lenovo", categoria: "computadores", precio: 500, stock: 1 },
+    { id: 6, marca: "Asus", categoria: "perifericos", precio: 120, stock: 60 },
   ];
 
   const withTax = addPriceWithTax(products);
