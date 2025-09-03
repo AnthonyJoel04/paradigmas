@@ -37,8 +37,6 @@ Archivo: `ejercicio3.js`
   4. `validateProduct` → valida que un producto tenga campos obligatorios y valores correctos.
 - La salida muestra tablas con ejemplos de entradas válidas e inválidas.
 
----
-
 ## Ejercicio 4: Operaciones con productos (Funcional)
 Archivo: `ejercicio4.js`
  
@@ -52,8 +50,6 @@ Archivo: `ejercicio4.js`
   - Grupos por categoría.
   - Resultados de búsqueda por marca.
   - Tabla de estadísticas.
-
----
 
 ## Ejercicio 5: Inventario con impuestos y estado (Funcional)
 Archivo: `ejercicio5.js`
@@ -77,7 +73,7 @@ En el archivo `package.json`, se definieron scripts como:
   "start_cod_3": "node src/ejercicio3.js",
   "start_cod_4": "node src/ejercicio4.js",
   "start_cod_5": "node src/ejercicio5.js"
-}'''
+}
 
 Para utilizarlo con: 
 
