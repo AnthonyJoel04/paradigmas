@@ -64,17 +64,14 @@ Archivo: `ejercicio5.js`
   - Resumen de inventario agrupado por categoría.
 
 ## Cómo ejecutar
-En el archivo `package.json`, se definieron scripts como:
+En el archivo `package.json`, se definieron scripts oara poder ejecutar cada uno y también de manera individual:
 
 ```json
 "scripts": {
+  "start": "node selectExercise.js",
   "start_cod_1": "node src/ejercicio1.js",
   "start_cod_2": "node src/ejercicio2.js",
   "start_cod_3": "node src/ejercicio3.js",
   "start_cod_4": "node src/ejercicio4.js",
   "start_cod_5": "node src/ejercicio5.js"
 }
-
-Para utilizarlo con: 
-
-"start": "node selectExercise.js",
