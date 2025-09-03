@@ -9,3 +9,26 @@ const estudiantes = [
 
 const obtenerEstudiantesJsMayor80 = (arr) =>
   arr.filter((e) => e.curso === "JavaScript" && e.nota > 80);
+
+const obtenerPromedioNotas = (arr) =>
+  arr.reduce((acc, e) => acc + e.nota, 0) / (arr.length || 1);
+
+const obtenerNombresMayoresQue = (arr, edadMinima = 21) =>
+  arr.filter((e) => e.edad > edadMinima).map((e) => e.nombre);
+
+const obtenerMejorEstudiante = (arr) =>
+  arr.reduce((mejor, e) => (e.nota > (mejor?.nota ?? -Infinity) ? e : mejor), null);
+
+console.log("\n=== EJERCICIO 1 ===");
+console.table(obtenerEstudiantesJsMayor80(estudiantes));
+console.log("Promedio notas:", obtenerPromedioNotas(estudiantes).toFixed(2));
+console.table(obtenerNombresMayoresQue(estudiantes, 20));
+console.log("Mejor estudiante:", obtenerMejorEstudiante(estudiantes));
+
+module.exports = {
+  estudiantes,
+  obtenerEstudiantesJsMayor80,
+  obtenerPromedioNotas,
+  obtenerNombresMayoresQue,
+  obtenerMejorEstudiante,
+};
