@@ -1,8 +1,3 @@
-// ===== Reglas del ejercicio =====
-// - Agrega campo "priceWithTax" (19% IVA por defecto)
-// - Agrega campo "status" basado en stock: High (>=50), Medium (>=20), Low (<20)
-// - Crea un resumen de inventario por categoría
-
 const IVA = 0.19;
 
 const addPriceWithTax = (arr, tax = IVA) =>
@@ -29,14 +24,12 @@ const inventorySummaryByCategory = (arr) =>
     return acc;
   }, {});
 
-// exporta exactamente lo pedido (en inglés para que coincida con la consigna)
 module.exports = {
   addPriceWithTax,
   addStatus,
   inventorySummaryByCategory,
 };
 
-// ===== Demo mínima (imprime resultados si lo ejecutas directo) =====
 if (require.main === module) {
   const products = [
     { id: 1, marca: "Sony", categoria: "audio", precio: 100, stock: 5 },
@@ -49,14 +42,14 @@ if (require.main === module) {
   const withStatus = addStatus(withTax);
   const summary = inventorySummaryByCategory(products);
 
-  console.log("1) Con priceWithTax (19%):");
+  console.log("1) Con PriceWithTax (19%):");
   console.table(
     withTax.map(({ id, marca, categoria, precio, priceWithTax, stock }) => ({
       id, marca, categoria, precio, priceWithTax, stock,
     }))
   );
 
-  console.log("\n2) Con status (High/Medium/Low):");
+  console.log("\n2) Con status (Alto/Medio/Bajo):");
   console.table(
     withStatus.map(({ id, marca, categoria, precio, priceWithTax, stock, status }) => ({
       id, marca, categoria, precio, priceWithTax, stock, status,
