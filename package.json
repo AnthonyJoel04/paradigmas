@@ -3,10 +3,11 @@
     "lodash": "^4.17.21"
   },
   "scripts": {
-    "start cod 1": "node src/ejercicio1.js",
-    "start cod 2": "node src/ejercicio2.js",
-    "start cod 3": "node src/ejercicio3.js",
-    "start cod 4": "node src/ejercicio4.js",
-    "start cod 5": "node src/ejercicio5.js"
+    "start": "node selectExercise.js",
+    "start_cod_1": "node src/ejercicio1.js",
+    "start_cod_2": "node src/ejercicio2.js",
+    "start_cod_3": "node src/ejercicio3.js",
+    "start_cod_4": "node src/ejercicio4.js",
+    "start_cod_5": "node src/ejercicio5.js"
   }
 }
