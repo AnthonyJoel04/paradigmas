@@ -2,8 +2,6 @@
 
 Este documento explica de manera sencilla cómo se resolvió cada ejercicio y las decisiones tomadas en el código.
 
----
-
 ## Ejercicio 1: Estudiantes
 - Se trabajó con un arreglo de estudiantes con nombre, edad, curso y nota.
 - Se usaron funciones con **filter**, **map** y **reduce** para:
